@@ -1,0 +1,30 @@
+{
+  "name": "koa-rest",
+  "version": "1.0.0",
+  "description": "koa-rest sample",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/superman66/koa-rest.git"
+  },
+  "keywords": [
+    "koa",
+    "rest"
+  ],
+  "author": "superman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/superman66/koa-rest/issues"
+  },
+  "homepage": "https://github.com/superman66/koa-rest#readme",
+  "dependencies": {
+    "koa": "^2.3.0",
+    "koa-body": "^2.3.0",
+    "koa-router": "^7.2.1",
+    "koa-views": "^6.0.2",
+    "swig": "^1.4.2"
+  }
+}
