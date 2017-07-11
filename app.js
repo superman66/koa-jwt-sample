@@ -19,8 +19,29 @@ router.get('/', list);
 
 app.use(router.routes());
 
+/**
+ * handling 404
+ */
+app.use(async function pageNotFound(ctx) {
+    ctx.status = 404;
+    switch (ctx.accepts('html', 'json')) {
+        case 'html':
+            ctx.type = 'html';
+            ctx.body = '<p>Page Not Found</p>'
+            break;
+        case 'json':
+            ctx.body = {
+                message: 'Page Not Found'
+            };
+            break;
+        default:
+            ctx.type = 'text';
+            ctx.body = 'Page Not Found';
+    }
+});
+
 async function list(ctx) {
-    await ctx.render('list', {posts: posts})
+    await ctx.render('list', { posts: posts })
 }
 
-if(!module.parent) app.listen(3002);
+if (!module.parent) app.listen(3002);
