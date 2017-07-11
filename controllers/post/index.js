@@ -1,8 +1,8 @@
 const router = require('koa-router')();
-const books = require('./books');
+const books = require('./post');
 
 // 前台路由
 router.get('/', books.list);
-router.get('/post/:id', books.article);
+router.get('/:id', books.article);
 
 module.exports = router;

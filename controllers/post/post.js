@@ -9,10 +9,10 @@ exports.list = async function (ctx) {
     await ctx.render('list', { posts: posts })
 }
 
-exports.article = async (id, ctx) => {
-    const post = posts.filter((post) => {
-        post.id === id
-    });
+exports.article = async (ctx) => {
+    const post = posts.filter((post) => 
+        post.id == ctx.params.id
+    )[0];
     await ctx.render('article', { post: post })
 }
 
