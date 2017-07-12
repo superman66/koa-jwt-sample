@@ -9,8 +9,9 @@
   <ul id="posts">
     {% for book in books %}
       <li>
-        <h2>{{ book.name }}</h2>
-        <p><a href="/book/{{ book._id.toString() }}">More Detail</a></p>
+        <a href="/book/{{ book._id.toString() }}">
+          {{book.name}}
+        </a>
       </li>
     {% endfor %}
   </ul>
