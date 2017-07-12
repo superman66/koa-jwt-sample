@@ -3,6 +3,7 @@ const Router = require('koa-router');
 const Koa = require('koa');
 const KoaBody = require('koa-body');
 const app = new Koa();
+const db = require('./connect');
 
 const posts = [];
 
