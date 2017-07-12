@@ -4,7 +4,7 @@
   "description": "koa-rest sample",
   "main": "index.js",
   "scripts": {
-    "start": "node --harmony app.js",
+    "start": "node-dev app.js --no-deps",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
