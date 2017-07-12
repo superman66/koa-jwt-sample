@@ -1,7 +1,9 @@
 const render = require('./lib/render');
+const path = require('path');
 const Router = require('koa-router');
 const Koa = require('koa');
 const KoaBody = require('koa-body');
+const serve = require('koa-static');
 const app = new Koa();
 const db = require('./connect');
 
@@ -11,6 +13,8 @@ const posts = [];
 app.use(render);
 app.use(KoaBody());
 
+// serve static file
+app.use(serve(path.join(__dirname, 'public')));
 
 // router definitions
 require('./routes')(app);
