@@ -1,0 +1,13 @@
+
+{% extends 'layout.html' %}
+
+{% block title %}book{% endblock %}
+
+{% block content %}
+  <h1>{{ book.name }}</h1>
+  <ul id="post">
+    <li>作者：{{ book.author }}</li>
+    <li>isbn: {{ book.isbn }}</li>
+    <li>url: {{ book.url }}</li>
+  </ul>
+{% endblock %}
