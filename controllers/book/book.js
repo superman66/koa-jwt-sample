@@ -7,13 +7,13 @@ exports.list = async (ctx) => {
     // this.body = await render('list', {
     //     books: await library.find({})
     // })
-    await ctx.render('list', {
+    await ctx.render('book/list', {
         books:  await library.find({})
     })
 }
 
 exports.book = async (ctx) => {
-    await ctx.render('book', { 
+    await ctx.render('book/book', { 
         book: await library.findOne({_id: ctx.params.id})
      })
 }
