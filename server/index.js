@@ -12,7 +12,7 @@ mongoose.connect(connexionString)
 mongoose.connect('error', console.error)
 
 // create Koa application
-const app = Koa();
+const app = new Koa();
 
 // apply middlewares
 app

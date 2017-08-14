@@ -4,7 +4,7 @@
   "description": "koa-rest sample",
   "main": "index.js",
   "scripts": {
-    "start": "node-dev app.js --no-deps",
+    "start": "nodemon server/ --exec babel-node",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
