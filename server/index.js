@@ -4,9 +4,11 @@ import logger from 'koa-logger'
 import mongoose from 'mongoose'
 import helmet from 'koa-helmet'
 import cors from 'koa-cors'
+import path from 'path'
+import fs from 'fs'
 // import serve from 'koa-static'
-import routing from './routes/'
-import { port, connexionString } from './config'
+import routing from './routes'
+import { port, connexionString } from './config/index'
 
 mongoose.connect(connexionString)
 mongoose.connect('error', console.error)
