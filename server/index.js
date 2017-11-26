@@ -4,20 +4,28 @@ import logger from 'koa-logger'
 import mongoose from 'mongoose'
 import helmet from 'koa-helmet'
 import cors from 'koa-cors'
-import path from 'path'
-import fs from 'fs'
+import jwt from 'koa-jwt'
 // import serve from 'koa-static'
 import routing from './routes'
-import { port, connexionString } from './config/index'
+import { port, connexionString, secret } from './config/index'
+import { handleError } from './middlewares/jwt'
 
 mongoose.connect(connexionString)
 mongoose.connect('error', console.error)
+// mongoose promise 风格 [mongoose.Promise = require('bluebird')]
+mongoose.Promise = global.Promise
 
 // create Koa application
 const app = new Koa();
 
 // apply middlewares
 app
+  .use(handleError)
+  .use(jwt({
+    secret,
+  }).unless({
+    path: [/\/register/, /\/login/],
+  }))
   .use(logger())
   .use(bodyParser())
   .use(helmet())

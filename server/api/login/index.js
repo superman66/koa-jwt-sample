@@ -1,9 +1,9 @@
 import Router from 'koa-router'
-import LoginControllers from './login.controllers'
+import LoginController from './login.controller'
 
 const router = new Router();
 
-router.post('/login', LoginControllers.login)
-router.post('/register', LoginControllers.register)
+router.post('/login', LoginController.login)
+router.post('/register', LoginController.register)
 
 export default router
