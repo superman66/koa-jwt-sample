@@ -1,4 +1,4 @@
-export const handleError = (ctx, next) => {
+export default (ctx, next) => {
   return next().catch((err) => {
     if (err.status === 401) {
       ctx.status = 401;

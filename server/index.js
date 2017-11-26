@@ -8,7 +8,7 @@ import jwt from 'koa-jwt'
 // import serve from 'koa-static'
 import routing from './routes'
 import { port, connexionString, secret } from './config/index'
-import { handleError } from './middlewares/jwt'
+import errorHandle from './middlewares/errorHandle'
 
 mongoose.connect(connexionString)
 mongoose.connect('error', console.error)
@@ -20,7 +20,7 @@ const app = new Koa();
 
 // apply middlewares
 app
-  .use(handleError)
+  .use(errorHandle)
   .use(jwt({
     secret,
   }).unless({

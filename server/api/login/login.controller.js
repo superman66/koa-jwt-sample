@@ -1,6 +1,7 @@
 import mongoose from 'mongoose'
 import bcrypt from 'bcrypt'
 import jsonwebtoken from 'jsonwebtoken'
+// ensure import UserModel before use model('user')
 import UserModel from '../../models/User.model'
 import { secret } from '../../config/index';
 
