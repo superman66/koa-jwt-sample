@@ -9,6 +9,10 @@ import { secret } from '../../config/index';
 const User = mongoose.model('User');
 
 class LoginController {
+
+  /** you can login with
+   * curl -X POST http://localhost:3200/api/login/ -H 'cache-control: no-cache' -H 'content-type: application/x-www-form-urlencoded' -d 'username=superman2&password=123456'
+   */
   async login(ctx) {
     const { body } = ctx.request
     try {
@@ -20,13 +24,16 @@ class LoginController {
         }
         return;
       }
+      // 匹配密码是否相等
       if (await bcrypt.compare(body.password, user.password)) {
         ctx.status = 200
         ctx.body = {
           message: '登录成功',
           user: user.userInfo,
+          // 生成 token 返回给客户端
           token: jsonwebtoken.sign({
             data: user,
+            // 设置 token 过期时间
             exp: Math.floor(Date.now() / 1000) + (60 * 60), // 60 seconds * 60 minutes = 1 hour
           }, secret),
         }
@@ -41,6 +48,10 @@ class LoginController {
     }
   }
 
+  /**
+   * you can register with
+   * curl -X POST http://localhost:3200/api/register  -H 'cache-control: no-cache' -H 'content-type: application/x-www-form-urlencoded'  -d 'username=superman2&password=123456'
+   */
   async register(ctx) {
     const { body } = ctx.request;
     try {
