@@ -1,5 +1,5 @@
 # koa + jwt 实现登录注册
-关于 Token 认证机制，这里不做更多解释。不清楚的可以看我的这篇文章：(Web开发中常见的认证机制)[https://chenhuichao.com/2017/03/13/fe/web-auth/]
+关于 Token 认证机制，这里不做更多解释。不清楚的可以看我的这篇文章：[Web开发中常见的认证机制](https://chenhuichao.com/2017/03/13/fe/web-auth/)
 
 ## 所需库
 - bcrypt - 用于加密密码
@@ -152,7 +152,7 @@ app.use(jwt({ secret: publicKey }));
 
 需要注意的是，在使用 `jsonwebtoken.sign()` 时，需要传入的 `secret` 参数，这里的 `secret` 必须要与 前面设置  `jwt()` 中的 `secret` 一致。
 
-更多关于 `jsonwebtoken` 的方法，可见：(https://github.com/auth0/node-jsonwebtoken)[https://github.com/auth0/node-jsonwebtoken]
+更多关于 `jsonwebtoken` 的方法，可见：[https://github.com/auth0/node-jsonwebtoken](https://github.com/auth0/node-jsonwebtoken)
 
 在登录后，拿着返回的 token，这时候去访问 `/api/users`，就能正确获得用户列表。
 
