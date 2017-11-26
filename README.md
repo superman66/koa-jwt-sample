@@ -1,4 +1,4 @@
-# koa + jwt 实现登录注册
+# koa 实现 jwt 认证
 关于 Token 认证机制，这里不做更多解释。不清楚的可以看我的这篇文章：[Web开发中常见的认证机制](https://chenhuichao.com/2017/03/13/fe/web-auth/)
 
 ## 所需库
