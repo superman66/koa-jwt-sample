@@ -11,7 +11,6 @@ import { port, connexionString, secret } from './config/index'
 import errorHandle from './middlewares/errorHandle'
 
 mongoose.connect(connexionString)
-mongoose.connect('error', console.error)
 // mongoose promise 风格 [mongoose.Promise = require('bluebird')]
 mongoose.Promise = global.Promise
 
